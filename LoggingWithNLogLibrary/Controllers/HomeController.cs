@@ -20,7 +20,15 @@ namespace LoggingWithNLogLibrary.Controllers
 
         public IActionResult Index()
         {
-            _logger.LogInformation("Index sayfasi baslamistir...");
+            int value1 = 5, value2 = 0, resutlt;
+            try
+            {
+                resutlt = value1 / value2;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, ex.Message);
+            }
 
             return View();
         }
